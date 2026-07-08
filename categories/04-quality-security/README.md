@@ -1,6 +1,6 @@
 # 04. Quality & Security
 
-Review and verification agents that work especially well as read-heavy Codex subagents.
+Review and verification agents that work especially well as read-heavy Autohand Code subagents.
 
 Included agents:
 

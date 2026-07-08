@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
-"""Validate agent TOML files and duplicate names."""
+"""Validate Autohand markdown agent files and duplicate names."""
 
 from __future__ import annotations
 
 import sys
-import tomllib
 from pathlib import Path
 
 
@@ -12,21 +11,53 @@ ROOT = Path(__file__).resolve().parents[1]
 CATEGORIES = ROOT / "categories"
 
 
+def parse_frontmatter(text: str) -> tuple[dict[str, str], str] | None:
+    if not text.startswith("---\n"):
+        return None
+    end = text.find("\n---", 4)
+    if end < 0:
+        return None
+    raw = text[4:end]
+    body = text[end + 4 :].strip()
+    meta: dict[str, str] = {}
+    for line in raw.splitlines():
+        if not line.strip():
+            continue
+        if ":" not in line:
+            return None
+        key, value = line.split(":", 1)
+        meta[key.strip()] = value.strip()
+    return meta, body
+
+
 def main() -> int:
     seen: dict[str, Path] = {}
     errors: list[str] = []
 
-    for path in sorted(CATEGORIES.rglob("*.toml")):
-        try:
-            data = tomllib.loads(path.read_text(encoding="utf-8"))
-        except Exception as exc:  # noqa: BLE001 - report every TOML parse failure.
-            errors.append(f"{path.relative_to(ROOT)}: invalid TOML: {exc}")
+    toml_files = sorted(CATEGORIES.rglob("*.toml"))
+    if toml_files:
+        for path in toml_files:
+            errors.append(f"{path.relative_to(ROOT)}: catalog agents must be Autohand markdown, not TOML")
+
+    for path in sorted(CATEGORIES.rglob("*.md")):
+        if path.name == "README.md":
             continue
 
-        name = data.get("name")
-        if not isinstance(name, str) or not name.strip():
-            errors.append(f"{path.relative_to(ROOT)}: missing string name")
+        parsed = parse_frontmatter(path.read_text(encoding="utf-8"))
+        if parsed is None:
+            errors.append(f"{path.relative_to(ROOT)}: missing frontmatter")
             continue
+        meta, body = parsed
+
+        name = path.stem
+        description = meta.get("description")
+        tools = meta.get("tools")
+        if not description:
+            errors.append(f"{path.relative_to(ROOT)}: missing description")
+        if not tools:
+            errors.append(f"{path.relative_to(ROOT)}: missing tools")
+        if not body:
+            errors.append(f"{path.relative_to(ROOT)}: missing prompt body")
 
         previous = seen.get(name)
         if previous:
@@ -41,7 +72,7 @@ def main() -> int:
             print(error, file=sys.stderr)
         return 1
 
-    print(f"Validated {len(seen)} agents.")
+    print(f"Validated {len(seen)} Autohand markdown agents.")
     return 0
 
 

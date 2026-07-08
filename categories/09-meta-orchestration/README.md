@@ -1,6 +1,6 @@
 # 09. Meta & Orchestration
 
-Agents that help plan or coordinate multi-agent Codex workflows without inventing unsupported mechanics.
+Agents that help plan or coordinate multi-agent Autohand Code workflows without inventing unsupported mechanics.
 
 Included agents:
 

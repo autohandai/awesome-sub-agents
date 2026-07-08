@@ -1,6 +1,6 @@
 <div align="center">
     <h1>Awesome Sub-Agents</h1>
-    <strong>An Autohand-curated collection of 172 Codex-native subagents across 13 categories.</strong>
+    <strong>An Autohand-curated collection of 172 markdown sub-agents across 13 categories.</strong>
     <br />
     <br />
 </div>
@@ -18,63 +18,57 @@
 
 # Awesome Sub-Agents
 
-This repository is a curated collection of [Codex Subagents](https://developers.openai.com/codex/subagents): specialized AI assistants designed for specific development tasks. The agent files are written in Codex-native TOML format and organized by practical development domain.
+This repository is a curated collection of Autohand Code sub-agents: specialized AI assistants designed for specific development tasks. The agent files are written in Autohand markdown format and organized by practical development domain.
 
 This Autohand collection is based on [VoltAgent/awesome-codex-subagents](https://github.com/VoltAgent/awesome-codex-subagents) at commit `ca0d57bde60ed56a415cd4b2319c261a13b46689`. The original project is MIT licensed; see [NOTICE.md](NOTICE.md) and [LICENSE](LICENSE).
 
 ## Installation
 
-Use Codex custom agent directories exactly as documented:
+Use Autohand custom agent directories:
 
-- `~/.codex/agents/` for global agents (available in all projects)
-- `.codex/agents/` for project-specific agents (higher precedence in that repo)
+- `~/.autohand/agents/` for global agents available to Autohand Code.
+- `--agents <path>` to point one session at an external agent directory.
+- The Autohand Code catalog installer can install agents from this repository automatically when available.
 
 1. Clone this repository.
-2. Copy the `.toml` agent files you want into one of the directories above.
-3. Restart or refresh your Codex session if needed.
-4. Delegate explicitly in prompts (Codex does not auto-spawn custom subagents).
+2. Copy the `.md` agent files you want into one of the directories above.
+3. Restart or refresh your Autohand Code session if needed.
+4. Delegate explicitly in prompts or use Autohand Code's catalog installer when available.
 
 Examples:
 ```bash
-mkdir -p ~/.codex/agents
-cp categories/01-core-development/backend-developer.toml ~/.codex/agents/
+mkdir -p ~/.autohand/agents
+cp categories/01-core-development/backend-developer.md ~/.autohand/agents/
 ```
 
 ```bash
-mkdir -p .codex/agents
-cp categories/04-quality-security/reviewer.toml .codex/agents/
+autohand --agents ./categories/04-quality-security
 ```
-
-If you use agent configuration in Codex, keep it in `.codex/config.toml` under `[agents]` as described in the official docs.
-
 
 ### Subagent Storage Locations
 
 | Type | Path | Availability | Precedence |
 |------|------|--------------|------------|
-| Project Subagents | `.codex/agents/` | Current project only | Higher |
-| Global Subagents | `~/.codex/agents/` | All projects | Lower |
+| Global Subagents | `~/.autohand/agents/` | All Autohand Code projects | Standard |
+| External Subagents | `--agents <path>` or configured external path | Current session/config | Session/config scoped |
 
-Note: When naming conflicts occur, project-specific subagents override global ones.
+Note: Session-injected agents and project-generated agents can override file-based agents with the same name in Autohand Code.
 
 
 ## Subagent Structure
 
-Each subagent uses a Codex-native `.toml` format:
+Each subagent uses Autohand's markdown agent format:
 
-```toml
-name = "subagent-name"
-description = "When this agent should be invoked"
-model = "gpt-5.3-codex-spark"
-model_reasoning_effort = "medium"
-sandbox_mode = "read-only"
+```markdown
+---
+description: When this agent should be invoked
+tools: read_file, fff_grep, fff_find
+model: gpt-5.3-codex-spark
+---
 
-[instructions]
-text = """
 You are a [role description and expertise areas]...
 
 [Agent-specific checklists, patterns, and guidelines]...
-"""
 ```
 
 ### Smart Model Routing
@@ -88,9 +82,9 @@ Each subagent includes a `model` field that automatically routes it to the right
 
 ### Sandbox Mode Philosophy
 
-Each subagent's `sandbox_mode` field controls filesystem access:
-- **Read-only agents** (reviewers, auditors): `sandbox_mode = "read-only"` - analyze without modifying
-- **Workspace-write agents** (developers, engineers): `sandbox_mode = "workspace-write"` - create and modify files
+Each subagent declares the tools it can use in frontmatter:
+- **Read-only agents** (reviewers, auditors): `read_file, fff_grep, fff_find`
+- **Workspace-write agents** (developers, engineers): `read_file, fff_grep, fff_find, apply_patch, search_replace, run_command`
 
 
 
@@ -100,101 +94,101 @@ Each subagent's `sandbox_mode` field controls filesystem access:
 
 Essential development subagents for everyday coding tasks.
 
-- [**api-designer**](categories/01-core-development/api-designer.toml) - REST and GraphQL API architect
-- [**backend-developer**](categories/01-core-development/backend-developer.toml) - Server-side expert for scalable APIs
-- [**code-mapper**](categories/01-core-development/code-mapper.toml) - Code path mapping and ownership boundary analysis
-- [**design-bridge**](categories/01-core-development/design-bridge.toml) - Translates DESIGN.md specs into implementation-ready UI instructions
-- [**electron-pro**](categories/01-core-development/electron-pro.toml) - Desktop application expert
-- [**frontend-developer**](categories/01-core-development/frontend-developer.toml) - UI/UX specialist for React, Vue, and Angular
-- [**fullstack-developer**](categories/01-core-development/fullstack-developer.toml) - End-to-end feature development
-- [**graphql-architect**](categories/01-core-development/graphql-architect.toml) - GraphQL schema and federation expert
-- [**microservices-architect**](categories/01-core-development/microservices-architect.toml) - Distributed systems designer
-- [**mobile-developer**](categories/01-core-development/mobile-developer.toml) - Cross-platform mobile specialist
-- [**ui-designer**](categories/01-core-development/ui-designer.toml) - Visual design and interaction specialist
-- [**ui-fixer**](categories/01-core-development/ui-fixer.toml) - Smallest safe patch for reproduced UI issues
-- [**websocket-engineer**](categories/01-core-development/websocket-engineer.toml) - Real-time communication specialist
+- [**api-designer**](categories/01-core-development/api-designer.md) - REST and GraphQL API architect
+- [**backend-developer**](categories/01-core-development/backend-developer.md) - Server-side expert for scalable APIs
+- [**code-mapper**](categories/01-core-development/code-mapper.md) - Code path mapping and ownership boundary analysis
+- [**design-bridge**](categories/01-core-development/design-bridge.md) - Translates DESIGN.md specs into implementation-ready UI instructions
+- [**electron-pro**](categories/01-core-development/electron-pro.md) - Desktop application expert
+- [**frontend-developer**](categories/01-core-development/frontend-developer.md) - UI/UX specialist for React, Vue, and Angular
+- [**fullstack-developer**](categories/01-core-development/fullstack-developer.md) - End-to-end feature development
+- [**graphql-architect**](categories/01-core-development/graphql-architect.md) - GraphQL schema and federation expert
+- [**microservices-architect**](categories/01-core-development/microservices-architect.md) - Distributed systems designer
+- [**mobile-developer**](categories/01-core-development/mobile-developer.md) - Cross-platform mobile specialist
+- [**ui-designer**](categories/01-core-development/ui-designer.md) - Visual design and interaction specialist
+- [**ui-fixer**](categories/01-core-development/ui-fixer.md) - Smallest safe patch for reproduced UI issues
+- [**websocket-engineer**](categories/01-core-development/websocket-engineer.md) - Real-time communication specialist
 
 ### [02. Language Specialists](categories/02-language-specialists/)
 
 Language-specific experts with deep framework knowledge.
-- [**angular-architect**](categories/02-language-specialists/angular-architect.toml) - Angular 15+ enterprise patterns expert
-- [**cpp-pro**](categories/02-language-specialists/cpp-pro.toml) - C++ performance expert
-- [**csharp-developer**](categories/02-language-specialists/csharp-developer.toml) - .NET ecosystem specialist
-- [**django-developer**](categories/02-language-specialists/django-developer.toml) - Django 4+ web development expert
-- [**dotnet-core-expert**](categories/02-language-specialists/dotnet-core-expert.toml) - .NET 8 cross-platform specialist
-- [**dotnet-framework-4.8-expert**](categories/02-language-specialists/dotnet-framework-4.8-expert.toml) - .NET Framework legacy enterprise specialist
-- [**elixir-expert**](categories/02-language-specialists/elixir-expert.toml) - Elixir and OTP fault-tolerant systems expert
-- [**erlang-expert**](categories/02-language-specialists/erlang-expert.toml) - Erlang/OTP and rebar3 engineering expert
-- [**expo-react-native-expert**](categories/02-language-specialists/expo-react-native-expert.toml) - Expo and React Native mobile development expert
-- [**fastapi-developer**](categories/02-language-specialists/fastapi-developer.toml) - Modern async Python API framework expert
-- [**flutter-expert**](categories/02-language-specialists/flutter-expert.toml) - Flutter 3+ cross-platform mobile expert
-- [**golang-pro**](categories/02-language-specialists/golang-pro.toml) - Go concurrency specialist
-- [**java-architect**](categories/02-language-specialists/java-architect.toml) - Enterprise Java expert
-- [**javascript-pro**](categories/02-language-specialists/javascript-pro.toml) - JavaScript development expert
-- [**kotlin-specialist**](categories/02-language-specialists/kotlin-specialist.toml) - Modern JVM language expert
-- [**laravel-specialist**](categories/02-language-specialists/laravel-specialist.toml) - Laravel 10+ PHP framework expert
-- [**symfony-specialist**](categories/02-language-specialists/symfony-specialist.toml) - Symfony application and Doctrine specialist
-- [**nextjs-developer**](categories/02-language-specialists/nextjs-developer.toml) - Next.js 14+ full-stack specialist
-- [**node-specialist**](categories/02-language-specialists/node-specialist.toml) - Node.js backend specialist
-- [**php-pro**](categories/02-language-specialists/php-pro.toml) - PHP web development expert
-- [**powershell-5.1-expert**](categories/02-language-specialists/powershell-5.1-expert.toml) - Windows PowerShell 5.1 and full .NET Framework automation specialist
-- [**powershell-7-expert**](categories/02-language-specialists/powershell-7-expert.toml) - Cross-platform PowerShell 7+ automation and modern .NET specialist
-- [**python-pro**](categories/02-language-specialists/python-pro.toml) - Python ecosystem master
-- [**rails-expert**](categories/02-language-specialists/rails-expert.toml) - Rails 8.1 rapid development expert
-- [**react-specialist**](categories/02-language-specialists/react-specialist.toml) - React 18+ modern patterns expert
-- [**rust-engineer**](categories/02-language-specialists/rust-engineer.toml) - Systems programming expert
-- [**spring-boot-engineer**](categories/02-language-specialists/spring-boot-engineer.toml) - Spring Boot 3+ microservices expert
-- [**sql-pro**](categories/02-language-specialists/sql-pro.toml) - Database query expert
-- [**swift-expert**](categories/02-language-specialists/swift-expert.toml) - iOS and macOS specialist
-- [**typescript-pro**](categories/02-language-specialists/typescript-pro.toml) - TypeScript specialist
-- [**vue-expert**](categories/02-language-specialists/vue-expert.toml) - Vue 3 Composition API expert
+- [**angular-architect**](categories/02-language-specialists/angular-architect.md) - Angular 15+ enterprise patterns expert
+- [**cpp-pro**](categories/02-language-specialists/cpp-pro.md) - C++ performance expert
+- [**csharp-developer**](categories/02-language-specialists/csharp-developer.md) - .NET ecosystem specialist
+- [**django-developer**](categories/02-language-specialists/django-developer.md) - Django 4+ web development expert
+- [**dotnet-core-expert**](categories/02-language-specialists/dotnet-core-expert.md) - .NET 8 cross-platform specialist
+- [**dotnet-framework-4.8-expert**](categories/02-language-specialists/dotnet-framework-4.8-expert.md) - .NET Framework legacy enterprise specialist
+- [**elixir-expert**](categories/02-language-specialists/elixir-expert.md) - Elixir and OTP fault-tolerant systems expert
+- [**erlang-expert**](categories/02-language-specialists/erlang-expert.md) - Erlang/OTP and rebar3 engineering expert
+- [**expo-react-native-expert**](categories/02-language-specialists/expo-react-native-expert.md) - Expo and React Native mobile development expert
+- [**fastapi-developer**](categories/02-language-specialists/fastapi-developer.md) - Modern async Python API framework expert
+- [**flutter-expert**](categories/02-language-specialists/flutter-expert.md) - Flutter 3+ cross-platform mobile expert
+- [**golang-pro**](categories/02-language-specialists/golang-pro.md) - Go concurrency specialist
+- [**java-architect**](categories/02-language-specialists/java-architect.md) - Enterprise Java expert
+- [**javascript-pro**](categories/02-language-specialists/javascript-pro.md) - JavaScript development expert
+- [**kotlin-specialist**](categories/02-language-specialists/kotlin-specialist.md) - Modern JVM language expert
+- [**laravel-specialist**](categories/02-language-specialists/laravel-specialist.md) - Laravel 10+ PHP framework expert
+- [**symfony-specialist**](categories/02-language-specialists/symfony-specialist.md) - Symfony application and Doctrine specialist
+- [**nextjs-developer**](categories/02-language-specialists/nextjs-developer.md) - Next.js 14+ full-stack specialist
+- [**node-specialist**](categories/02-language-specialists/node-specialist.md) - Node.js backend specialist
+- [**php-pro**](categories/02-language-specialists/php-pro.md) - PHP web development expert
+- [**powershell-5.1-expert**](categories/02-language-specialists/powershell-5.1-expert.md) - Windows PowerShell 5.1 and full .NET Framework automation specialist
+- [**powershell-7-expert**](categories/02-language-specialists/powershell-7-expert.md) - Cross-platform PowerShell 7+ automation and modern .NET specialist
+- [**python-pro**](categories/02-language-specialists/python-pro.md) - Python ecosystem master
+- [**rails-expert**](categories/02-language-specialists/rails-expert.md) - Rails 8.1 rapid development expert
+- [**react-specialist**](categories/02-language-specialists/react-specialist.md) - React 18+ modern patterns expert
+- [**rust-engineer**](categories/02-language-specialists/rust-engineer.md) - Systems programming expert
+- [**spring-boot-engineer**](categories/02-language-specialists/spring-boot-engineer.md) - Spring Boot 3+ microservices expert
+- [**sql-pro**](categories/02-language-specialists/sql-pro.md) - Database query expert
+- [**swift-expert**](categories/02-language-specialists/swift-expert.md) - iOS and macOS specialist
+- [**typescript-pro**](categories/02-language-specialists/typescript-pro.md) - TypeScript specialist
+- [**vue-expert**](categories/02-language-specialists/vue-expert.md) - Vue 3 Composition API expert
 
 
 ### [03. Infrastructure](categories/03-infrastructure/)
 
 DevOps, cloud, and deployment specialists.
 
-- [**azure-infra-engineer**](categories/03-infrastructure/azure-infra-engineer.toml) - Azure infrastructure and Az PowerShell automation expert
-- [**cloud-architect**](categories/03-infrastructure/cloud-architect.toml) - AWS/GCP/Azure specialist
-- [**database-administrator**](categories/03-infrastructure/database-administrator.toml) - Database management expert
-- [**deployment-engineer**](categories/03-infrastructure/deployment-engineer.toml) - Deployment automation specialist
-- [**devops-engineer**](categories/03-infrastructure/devops-engineer.toml) - CI/CD and automation expert
-- [**devops-incident-responder**](categories/03-infrastructure/devops-incident-responder.toml) - DevOps incident management
-- [**docker-expert**](categories/03-infrastructure/docker-expert.toml) - Docker containerization and optimization expert
-- [**incident-responder**](categories/03-infrastructure/incident-responder.toml) - System incident response expert
-- [**kubernetes-specialist**](categories/03-infrastructure/kubernetes-specialist.toml) - Container orchestration master
-- [**network-engineer**](categories/03-infrastructure/network-engineer.toml) - Network infrastructure specialist
-- [**platform-engineer**](categories/03-infrastructure/platform-engineer.toml) - Platform architecture expert
-- [**security-engineer**](categories/03-infrastructure/security-engineer.toml) - Infrastructure security specialist
-- [**sre-engineer**](categories/03-infrastructure/sre-engineer.toml) - Site reliability engineering expert
-- [**terraform-engineer**](categories/03-infrastructure/terraform-engineer.toml) - Infrastructure as Code expert
-- [**terragrunt-expert**](categories/03-infrastructure/terragrunt-expert.toml) - Terragrunt orchestration and DRY IaC specialist
-- [**windows-infra-admin**](categories/03-infrastructure/windows-infra-admin.toml) - Active Directory, DNS, DHCP, and GPO automation specialist
+- [**azure-infra-engineer**](categories/03-infrastructure/azure-infra-engineer.md) - Azure infrastructure and Az PowerShell automation expert
+- [**cloud-architect**](categories/03-infrastructure/cloud-architect.md) - AWS/GCP/Azure specialist
+- [**database-administrator**](categories/03-infrastructure/database-administrator.md) - Database management expert
+- [**deployment-engineer**](categories/03-infrastructure/deployment-engineer.md) - Deployment automation specialist
+- [**devops-engineer**](categories/03-infrastructure/devops-engineer.md) - CI/CD and automation expert
+- [**devops-incident-responder**](categories/03-infrastructure/devops-incident-responder.md) - DevOps incident management
+- [**docker-expert**](categories/03-infrastructure/docker-expert.md) - Docker containerization and optimization expert
+- [**incident-responder**](categories/03-infrastructure/incident-responder.md) - System incident response expert
+- [**kubernetes-specialist**](categories/03-infrastructure/kubernetes-specialist.md) - Container orchestration master
+- [**network-engineer**](categories/03-infrastructure/network-engineer.md) - Network infrastructure specialist
+- [**platform-engineer**](categories/03-infrastructure/platform-engineer.md) - Platform architecture expert
+- [**security-engineer**](categories/03-infrastructure/security-engineer.md) - Infrastructure security specialist
+- [**sre-engineer**](categories/03-infrastructure/sre-engineer.md) - Site reliability engineering expert
+- [**terraform-engineer**](categories/03-infrastructure/terraform-engineer.md) - Infrastructure as Code expert
+- [**terragrunt-expert**](categories/03-infrastructure/terragrunt-expert.md) - Terragrunt orchestration and DRY IaC specialist
+- [**windows-infra-admin**](categories/03-infrastructure/windows-infra-admin.md) - Active Directory, DNS, DHCP, and GPO automation specialist
 
 <details>
 <summary><b>04. Quality & Security</b> — Testing, security, and code quality experts (19 agents)</summary>
 
 ### [04. Quality & Security](categories/04-quality-security/)
 
-- [**accessibility-tester**](categories/04-quality-security/accessibility-tester.toml) - A11y compliance expert
-- [**ad-security-reviewer**](categories/04-quality-security/ad-security-reviewer.toml) - Active Directory security and GPO audit specialist
-- [**ai-writing-auditor**](categories/04-quality-security/ai-writing-auditor.toml) - AI writing pattern auditor and rewriter
-- [**architect-reviewer**](categories/04-quality-security/architect-reviewer.toml) - Architecture review specialist
-- [**browser-debugger**](categories/04-quality-security/browser-debugger.toml) - Browser-based reproduction and client-side debugging
-- [**chaos-engineer**](categories/04-quality-security/chaos-engineer.toml) - System resilience testing expert
-- [**code-reviewer**](categories/04-quality-security/code-reviewer.toml) - Code quality guardian
-- [**compliance-auditor**](categories/04-quality-security/compliance-auditor.toml) - Regulatory compliance expert
-- [**debugger**](categories/04-quality-security/debugger.toml) - Advanced debugging specialist
-- [**error-detective**](categories/04-quality-security/error-detective.toml) - Error analysis and resolution expert
-- [**gdpr-ccpa-compliance**](categories/04-quality-security/gdpr-ccpa-compliance.toml) - GDPR and CCPA privacy compliance specialist
-- [**penetration-tester**](categories/04-quality-security/penetration-tester.toml) - Ethical hacking specialist
-- [**performance-engineer**](categories/04-quality-security/performance-engineer.toml) - Performance optimization expert
-- [**powershell-security-hardening**](categories/04-quality-security/powershell-security-hardening.toml) - PowerShell security hardening and compliance specialist
-- [**qa-expert**](categories/04-quality-security/qa-expert.toml) - Test automation specialist
-- [**reviewer**](categories/04-quality-security/reviewer.toml) - PR-style review for correctness, security, and regressions
-- [**security-auditor**](categories/04-quality-security/security-auditor.toml) - Security vulnerability expert
-- [**test-automator**](categories/04-quality-security/test-automator.toml) - Test automation framework expert
-- [**ui-ux-tester**](categories/04-quality-security/ui-ux-tester.toml) - Exhaustive UI/UX functional testing specialist
+- [**accessibility-tester**](categories/04-quality-security/accessibility-tester.md) - A11y compliance expert
+- [**ad-security-reviewer**](categories/04-quality-security/ad-security-reviewer.md) - Active Directory security and GPO audit specialist
+- [**ai-writing-auditor**](categories/04-quality-security/ai-writing-auditor.md) - AI writing pattern auditor and rewriter
+- [**architect-reviewer**](categories/04-quality-security/architect-reviewer.md) - Architecture review specialist
+- [**browser-debugger**](categories/04-quality-security/browser-debugger.md) - Browser-based reproduction and client-side debugging
+- [**chaos-engineer**](categories/04-quality-security/chaos-engineer.md) - System resilience testing expert
+- [**code-reviewer**](categories/04-quality-security/code-reviewer.md) - Code quality guardian
+- [**compliance-auditor**](categories/04-quality-security/compliance-auditor.md) - Regulatory compliance expert
+- [**debugger**](categories/04-quality-security/debugger.md) - Advanced debugging specialist
+- [**error-detective**](categories/04-quality-security/error-detective.md) - Error analysis and resolution expert
+- [**gdpr-ccpa-compliance**](categories/04-quality-security/gdpr-ccpa-compliance.md) - GDPR and CCPA privacy compliance specialist
+- [**penetration-tester**](categories/04-quality-security/penetration-tester.md) - Ethical hacking specialist
+- [**performance-engineer**](categories/04-quality-security/performance-engineer.md) - Performance optimization expert
+- [**powershell-security-hardening**](categories/04-quality-security/powershell-security-hardening.md) - PowerShell security hardening and compliance specialist
+- [**qa-expert**](categories/04-quality-security/qa-expert.md) - Test automation specialist
+- [**reviewer**](categories/04-quality-security/reviewer.md) - PR-style review for correctness, security, and regressions
+- [**security-auditor**](categories/04-quality-security/security-auditor.md) - Security vulnerability expert
+- [**test-automator**](categories/04-quality-security/test-automator.md) - Test automation framework expert
+- [**ui-ux-tester**](categories/04-quality-security/ui-ux-tester.md) - Exhaustive UI/UX functional testing specialist
 
 </details>
 
@@ -203,19 +197,19 @@ DevOps, cloud, and deployment specialists.
 
 ### [05. Data & AI](categories/05-data-ai/)
 
-- [**ai-engineer**](categories/05-data-ai/ai-engineer.toml) - AI system design and deployment expert
-- [**data-analyst**](categories/05-data-ai/data-analyst.toml) - Data insights and visualization specialist
-- [**data-engineer**](categories/05-data-ai/data-engineer.toml) - Data pipeline architect
-- [**data-scientist**](categories/05-data-ai/data-scientist.toml) - Analytics and insights expert
-- [**database-optimizer**](categories/05-data-ai/database-optimizer.toml) - Database performance specialist
-- [**llm-architect**](categories/05-data-ai/llm-architect.toml) - Large language model architect
-- [**machine-learning-engineer**](categories/05-data-ai/machine-learning-engineer.toml) - Machine learning systems expert
-- [**ml-engineer**](categories/05-data-ai/ml-engineer.toml) - Machine learning specialist
-- [**mlops-engineer**](categories/05-data-ai/mlops-engineer.toml) - MLOps and model deployment expert
-- [**nlp-engineer**](categories/05-data-ai/nlp-engineer.toml) - Natural language processing expert
-- [**postgres-pro**](categories/05-data-ai/postgres-pro.toml) - PostgreSQL database expert
-- [**prompt-engineer**](categories/05-data-ai/prompt-engineer.toml) - Prompt optimization specialist
-- [**reinforcement-learning-engineer**](categories/05-data-ai/reinforcement-learning-engineer.toml) - Reinforcement learning and decision systems expert
+- [**ai-engineer**](categories/05-data-ai/ai-engineer.md) - AI system design and deployment expert
+- [**data-analyst**](categories/05-data-ai/data-analyst.md) - Data insights and visualization specialist
+- [**data-engineer**](categories/05-data-ai/data-engineer.md) - Data pipeline architect
+- [**data-scientist**](categories/05-data-ai/data-scientist.md) - Analytics and insights expert
+- [**database-optimizer**](categories/05-data-ai/database-optimizer.md) - Database performance specialist
+- [**llm-architect**](categories/05-data-ai/llm-architect.md) - Large language model architect
+- [**machine-learning-engineer**](categories/05-data-ai/machine-learning-engineer.md) - Machine learning systems expert
+- [**ml-engineer**](categories/05-data-ai/ml-engineer.md) - Machine learning specialist
+- [**mlops-engineer**](categories/05-data-ai/mlops-engineer.md) - MLOps and model deployment expert
+- [**nlp-engineer**](categories/05-data-ai/nlp-engineer.md) - Natural language processing expert
+- [**postgres-pro**](categories/05-data-ai/postgres-pro.md) - PostgreSQL database expert
+- [**prompt-engineer**](categories/05-data-ai/prompt-engineer.md) - Prompt optimization specialist
+- [**reinforcement-learning-engineer**](categories/05-data-ai/reinforcement-learning-engineer.md) - Reinforcement learning and decision systems expert
 
 </details>
 
@@ -224,20 +218,20 @@ DevOps, cloud, and deployment specialists.
 
 ### [06. Developer Experience](categories/06-developer-experience/)
 
-- [**build-engineer**](categories/06-developer-experience/build-engineer.toml) - Build system specialist
-- [**cli-developer**](categories/06-developer-experience/cli-developer.toml) - Command-line tool creator
-- [**dependency-manager**](categories/06-developer-experience/dependency-manager.toml) - Package and dependency specialist
-- [**documentation-engineer**](categories/06-developer-experience/documentation-engineer.toml) - Technical documentation expert
-- [**dx-optimizer**](categories/06-developer-experience/dx-optimizer.toml) - Developer experience optimization specialist
-- [**git-workflow-manager**](categories/06-developer-experience/git-workflow-manager.toml) - Git workflow and branching expert
-- [**legacy-modernizer**](categories/06-developer-experience/legacy-modernizer.toml) - Legacy code modernization specialist
-- [**mcp-developer**](categories/06-developer-experience/mcp-developer.toml) - Model Context Protocol specialist
-- [**powershell-module-architect**](categories/06-developer-experience/powershell-module-architect.toml) - PowerShell module and profile architecture specialist
-- [**powershell-ui-architect**](categories/06-developer-experience/powershell-ui-architect.toml) - PowerShell UI/UX specialist for WinForms, WPF, Metro frameworks, and TUIs
-- [**readme-generator**](categories/06-developer-experience/readme-generator.toml) - Maintainer-ready README generator with zero hallucination
-- [**refactoring-specialist**](categories/06-developer-experience/refactoring-specialist.toml) - Code refactoring expert
-- [**slack-expert**](categories/06-developer-experience/slack-expert.toml) - Slack platform and @slack/bolt specialist
-- [**tooling-engineer**](categories/06-developer-experience/tooling-engineer.toml) - Developer tooling specialist
+- [**build-engineer**](categories/06-developer-experience/build-engineer.md) - Build system specialist
+- [**cli-developer**](categories/06-developer-experience/cli-developer.md) - Command-line tool creator
+- [**dependency-manager**](categories/06-developer-experience/dependency-manager.md) - Package and dependency specialist
+- [**documentation-engineer**](categories/06-developer-experience/documentation-engineer.md) - Technical documentation expert
+- [**dx-optimizer**](categories/06-developer-experience/dx-optimizer.md) - Developer experience optimization specialist
+- [**git-workflow-manager**](categories/06-developer-experience/git-workflow-manager.md) - Git workflow and branching expert
+- [**legacy-modernizer**](categories/06-developer-experience/legacy-modernizer.md) - Legacy code modernization specialist
+- [**mcp-developer**](categories/06-developer-experience/mcp-developer.md) - Model Context Protocol specialist
+- [**powershell-module-architect**](categories/06-developer-experience/powershell-module-architect.md) - PowerShell module and profile architecture specialist
+- [**powershell-ui-architect**](categories/06-developer-experience/powershell-ui-architect.md) - PowerShell UI/UX specialist for WinForms, WPF, Metro frameworks, and TUIs
+- [**readme-generator**](categories/06-developer-experience/readme-generator.md) - Maintainer-ready README generator with zero hallucination
+- [**refactoring-specialist**](categories/06-developer-experience/refactoring-specialist.md) - Code refactoring expert
+- [**slack-expert**](categories/06-developer-experience/slack-expert.md) - Slack platform and @slack/bolt specialist
+- [**tooling-engineer**](categories/06-developer-experience/tooling-engineer.md) - Developer tooling specialist
 
 </details>
 
@@ -246,20 +240,20 @@ DevOps, cloud, and deployment specialists.
 
 ### [07. Specialized Domains](categories/07-specialized-domains/)
 
-- [**api-documenter**](categories/07-specialized-domains/api-documenter.toml) - API documentation specialist
-- [**blockchain-developer**](categories/07-specialized-domains/blockchain-developer.toml) - Web3 and crypto specialist
-- [**embedded-systems**](categories/07-specialized-domains/embedded-systems.toml) - Embedded and real-time systems expert
-- [**fintech-engineer**](categories/07-specialized-domains/fintech-engineer.toml) - Financial technology specialist
-- [**game-developer**](categories/07-specialized-domains/game-developer.toml) - Game development expert
-- [**healthcare-admin**](categories/07-specialized-domains/healthcare-admin.toml) - Healthcare administration, revenue cycle, and compliance specialist
-- [**hipaa-compliance**](categories/07-specialized-domains/hipaa-compliance.toml) - HIPAA compliance specialist for healthcare SaaS vendors
-- [**iot-engineer**](categories/07-specialized-domains/iot-engineer.toml) - IoT systems developer
-- [**m365-admin**](categories/07-specialized-domains/m365-admin.toml) - Microsoft 365, Exchange Online, Teams, and SharePoint administration specialist
-- [**mobile-app-developer**](categories/07-specialized-domains/mobile-app-developer.toml) - Mobile application specialist
-- [**payment-integration**](categories/07-specialized-domains/payment-integration.toml) - Payment systems expert
-- [**quant-analyst**](categories/07-specialized-domains/quant-analyst.toml) - Quantitative analysis specialist
-- [**risk-manager**](categories/07-specialized-domains/risk-manager.toml) - Risk assessment and management expert
-- [**seo-specialist**](categories/07-specialized-domains/seo-specialist.toml) - Search engine optimization expert
+- [**api-documenter**](categories/07-specialized-domains/api-documenter.md) - API documentation specialist
+- [**blockchain-developer**](categories/07-specialized-domains/blockchain-developer.md) - Web3 and crypto specialist
+- [**embedded-systems**](categories/07-specialized-domains/embedded-systems.md) - Embedded and real-time systems expert
+- [**fintech-engineer**](categories/07-specialized-domains/fintech-engineer.md) - Financial technology specialist
+- [**game-developer**](categories/07-specialized-domains/game-developer.md) - Game development expert
+- [**healthcare-admin**](categories/07-specialized-domains/healthcare-admin.md) - Healthcare administration, revenue cycle, and compliance specialist
+- [**hipaa-compliance**](categories/07-specialized-domains/hipaa-compliance.md) - HIPAA compliance specialist for healthcare SaaS vendors
+- [**iot-engineer**](categories/07-specialized-domains/iot-engineer.md) - IoT systems developer
+- [**m365-admin**](categories/07-specialized-domains/m365-admin.md) - Microsoft 365, Exchange Online, Teams, and SharePoint administration specialist
+- [**mobile-app-developer**](categories/07-specialized-domains/mobile-app-developer.md) - Mobile application specialist
+- [**payment-integration**](categories/07-specialized-domains/payment-integration.md) - Payment systems expert
+- [**quant-analyst**](categories/07-specialized-domains/quant-analyst.md) - Quantitative analysis specialist
+- [**risk-manager**](categories/07-specialized-domains/risk-manager.md) - Risk assessment and management expert
+- [**seo-specialist**](categories/07-specialized-domains/seo-specialist.md) - Search engine optimization expert
 
 </details>
 
@@ -268,22 +262,22 @@ DevOps, cloud, and deployment specialists.
 
 ### [08. Business & Product](categories/08-business-product/)
 
-- [**assumption-mapping**](categories/08-business-product/assumption-mapping.toml) - Product assumption risk and validation specialist
-- [**backlog-grooming**](categories/08-business-product/backlog-grooming.toml) - Agile backlog refinement specialist
-- [**business-analyst**](categories/08-business-product/business-analyst.toml) - Requirements specialist
-- [**content-marketer**](categories/08-business-product/content-marketer.toml) - Content marketing specialist
-- [**content-quality-editor**](categories/08-business-product/content-quality-editor.toml) - AI content quality and humanization specialist
-- [**customer-success-manager**](categories/08-business-product/customer-success-manager.toml) - Customer success expert
-- [**growth-loops**](categories/08-business-product/growth-loops.toml) - Growth loop and PLG mechanics specialist
-- [**legal-advisor**](categories/08-business-product/legal-advisor.toml) - Legal and compliance specialist
-- [**license-engineer**](categories/08-business-product/license-engineer.toml) - Software licensing and compliance systems specialist
-- [**product-manager**](categories/08-business-product/product-manager.toml) - Product strategy expert
-- [**project-manager**](categories/08-business-product/project-manager.toml) - Project management specialist
-- [**sales-engineer**](categories/08-business-product/sales-engineer.toml) - Technical sales expert
-- [**scrum-master**](categories/08-business-product/scrum-master.toml) - Agile methodology expert
-- [**technical-writer**](categories/08-business-product/technical-writer.toml) - Technical documentation specialist
-- [**ux-researcher**](categories/08-business-product/ux-researcher.toml) - User research expert
-- [**wordpress-master**](categories/08-business-product/wordpress-master.toml) - WordPress development and optimization expert
+- [**assumption-mapping**](categories/08-business-product/assumption-mapping.md) - Product assumption risk and validation specialist
+- [**backlog-grooming**](categories/08-business-product/backlog-grooming.md) - Agile backlog refinement specialist
+- [**business-analyst**](categories/08-business-product/business-analyst.md) - Requirements specialist
+- [**content-marketer**](categories/08-business-product/content-marketer.md) - Content marketing specialist
+- [**content-quality-editor**](categories/08-business-product/content-quality-editor.md) - AI content quality and humanization specialist
+- [**customer-success-manager**](categories/08-business-product/customer-success-manager.md) - Customer success expert
+- [**growth-loops**](categories/08-business-product/growth-loops.md) - Growth loop and PLG mechanics specialist
+- [**legal-advisor**](categories/08-business-product/legal-advisor.md) - Legal and compliance specialist
+- [**license-engineer**](categories/08-business-product/license-engineer.md) - Software licensing and compliance systems specialist
+- [**product-manager**](categories/08-business-product/product-manager.md) - Product strategy expert
+- [**project-manager**](categories/08-business-product/project-manager.md) - Project management specialist
+- [**sales-engineer**](categories/08-business-product/sales-engineer.md) - Technical sales expert
+- [**scrum-master**](categories/08-business-product/scrum-master.md) - Agile methodology expert
+- [**technical-writer**](categories/08-business-product/technical-writer.md) - Technical documentation specialist
+- [**ux-researcher**](categories/08-business-product/ux-researcher.md) - User research expert
+- [**wordpress-master**](categories/08-business-product/wordpress-master.md) - WordPress development and optimization expert
 
 </details>
 
@@ -292,18 +286,18 @@ DevOps, cloud, and deployment specialists.
 
 ### [09. Meta & Orchestration](categories/09-meta-orchestration/)
 
-- [**agent-installer**](categories/09-meta-orchestration/agent-installer.toml) - Browse and install agents from this repository via GitHub
-- [**agent-organizer**](categories/09-meta-orchestration/agent-organizer.toml) - Multi-agent coordinator
-- [**codebase-orchestrator**](categories/09-meta-orchestration/codebase-orchestrator.toml) - Repo-wide refactor governance with approval gates
-- [**context-manager**](categories/09-meta-orchestration/context-manager.toml) - Context optimization expert
-- [**error-coordinator**](categories/09-meta-orchestration/error-coordinator.toml) - Error handling and recovery specialist
-- [**it-ops-orchestrator**](categories/09-meta-orchestration/it-ops-orchestrator.toml) - IT operations workflow orchestration specialist
-- [**knowledge-synthesizer**](categories/09-meta-orchestration/knowledge-synthesizer.toml) - Knowledge aggregation expert
-- [**multi-agent-coordinator**](categories/09-meta-orchestration/multi-agent-coordinator.toml) - Advanced multi-agent orchestration
-- [**performance-monitor**](categories/09-meta-orchestration/performance-monitor.toml) - Agent performance optimization
+- [**agent-installer**](categories/09-meta-orchestration/agent-installer.md) - Browse and install agents from this repository via GitHub
+- [**agent-organizer**](categories/09-meta-orchestration/agent-organizer.md) - Multi-agent coordinator
+- [**codebase-orchestrator**](categories/09-meta-orchestration/codebase-orchestrator.md) - Repo-wide refactor governance with approval gates
+- [**context-manager**](categories/09-meta-orchestration/context-manager.md) - Context optimization expert
+- [**error-coordinator**](categories/09-meta-orchestration/error-coordinator.md) - Error handling and recovery specialist
+- [**it-ops-orchestrator**](categories/09-meta-orchestration/it-ops-orchestrator.md) - IT operations workflow orchestration specialist
+- [**knowledge-synthesizer**](categories/09-meta-orchestration/knowledge-synthesizer.md) - Knowledge aggregation expert
+- [**multi-agent-coordinator**](categories/09-meta-orchestration/multi-agent-coordinator.md) - Advanced multi-agent orchestration
+- [**performance-monitor**](categories/09-meta-orchestration/performance-monitor.md) - Agent performance optimization
 - [**pied-piper**](https://github.com/sathish316/pied-piper/) - Orchestrate Team of AI Subagents for repetitive SDLC workflows
-- [**task-distributor**](categories/09-meta-orchestration/task-distributor.toml) - Task allocation specialist
-- [**workflow-orchestrator**](categories/09-meta-orchestration/workflow-orchestrator.toml) - Complex workflow automation
+- [**task-distributor**](categories/09-meta-orchestration/task-distributor.md) - Task allocation specialist
+- [**workflow-orchestrator**](categories/09-meta-orchestration/workflow-orchestrator.md) - Complex workflow automation
 
 </details>
 
@@ -312,18 +306,18 @@ DevOps, cloud, and deployment specialists.
 
 ### [10. Research & Analysis](categories/10-research-analysis/)
 
-- [**ab-test-analysis**](categories/10-research-analysis/ab-test-analysis.toml) - A/B test interpretation and ship/no-ship decisions
-- [**cohort-analysis**](categories/10-research-analysis/cohort-analysis.toml) - Retention, cohort behavior, and activation-metric analysis
-- [**competitive-analyst**](categories/10-research-analysis/competitive-analyst.toml) - Competitive intelligence specialist
-- [**data-researcher**](categories/10-research-analysis/data-researcher.toml) - Data discovery and analysis expert
-- [**docs-researcher**](categories/10-research-analysis/docs-researcher.toml) - Documentation-backed API and framework verification
-- [**first-principles-thinking**](categories/10-research-analysis/first-principles-thinking.toml) - Assumption-challenging, first-principles problem solving
-- [**market-researcher**](categories/10-research-analysis/market-researcher.toml) - Market analysis and consumer insights
-- [**project-idea-validator**](categories/10-research-analysis/project-idea-validator.toml) - Brutal idea pressure-tester and go/no-go strategist
-- [**research-analyst**](categories/10-research-analysis/research-analyst.toml) - Comprehensive research specialist
-- [**scientific-literature-researcher**](categories/10-research-analysis/scientific-literature-researcher.toml) - Evidence-grounded research from published scientific studies
-- [**search-specialist**](categories/10-research-analysis/search-specialist.toml) - Advanced information retrieval expert
-- [**trend-analyst**](categories/10-research-analysis/trend-analyst.toml) - Emerging trends and forecasting expert
+- [**ab-test-analysis**](categories/10-research-analysis/ab-test-analysis.md) - A/B test interpretation and ship/no-ship decisions
+- [**cohort-analysis**](categories/10-research-analysis/cohort-analysis.md) - Retention, cohort behavior, and activation-metric analysis
+- [**competitive-analyst**](categories/10-research-analysis/competitive-analyst.md) - Competitive intelligence specialist
+- [**data-researcher**](categories/10-research-analysis/data-researcher.md) - Data discovery and analysis expert
+- [**docs-researcher**](categories/10-research-analysis/docs-researcher.md) - Documentation-backed API and framework verification
+- [**first-principles-thinking**](categories/10-research-analysis/first-principles-thinking.md) - Assumption-challenging, first-principles problem solving
+- [**market-researcher**](categories/10-research-analysis/market-researcher.md) - Market analysis and consumer insights
+- [**project-idea-validator**](categories/10-research-analysis/project-idea-validator.md) - Brutal idea pressure-tester and go/no-go strategist
+- [**research-analyst**](categories/10-research-analysis/research-analyst.md) - Comprehensive research specialist
+- [**scientific-literature-researcher**](categories/10-research-analysis/scientific-literature-researcher.md) - Evidence-grounded research from published scientific studies
+- [**search-specialist**](categories/10-research-analysis/search-specialist.md) - Advanced information retrieval expert
+- [**trend-analyst**](categories/10-research-analysis/trend-analyst.md) - Emerging trends and forecasting expert
 
 </details>
 
@@ -332,10 +326,10 @@ DevOps, cloud, and deployment specialists.
 
 ### [11. AI Governance & Safety](categories/11-ai-governance-safety/)
 
-- [**ai-governance-auditor**](categories/11-ai-governance-safety/ai-governance-auditor.toml) - AI governance controls and deployment readiness reviewer
-- [**model-risk-manager**](categories/11-ai-governance-safety/model-risk-manager.toml) - Model failure-mode prioritization and mitigation specialist
-- [**policy-guardrail-designer**](categories/11-ai-governance-safety/policy-guardrail-designer.toml) - Prompt, tool, and workflow guardrail designer
-- [**responsible-ai-reviewer**](categories/11-ai-governance-safety/responsible-ai-reviewer.toml) - Fairness, misuse, transparency, and oversight reviewer
+- [**ai-governance-auditor**](categories/11-ai-governance-safety/ai-governance-auditor.md) - AI governance controls and deployment readiness reviewer
+- [**model-risk-manager**](categories/11-ai-governance-safety/model-risk-manager.md) - Model failure-mode prioritization and mitigation specialist
+- [**policy-guardrail-designer**](categories/11-ai-governance-safety/policy-guardrail-designer.md) - Prompt, tool, and workflow guardrail designer
+- [**responsible-ai-reviewer**](categories/11-ai-governance-safety/responsible-ai-reviewer.md) - Fairness, misuse, transparency, and oversight reviewer
 
 </details>
 
@@ -344,10 +338,10 @@ DevOps, cloud, and deployment specialists.
 
 ### [12. Platform Engineering & IDP](categories/12-platform-engineering-idp/)
 
-- [**backstage-specialist**](categories/12-platform-engineering-idp/backstage-specialist.toml) - Backstage catalog, templates, and portal specialist
-- [**golden-path-designer**](categories/12-platform-engineering-idp/golden-path-designer.toml) - Opinionated self-service workflow designer
-- [**idp-architect**](categories/12-platform-engineering-idp/idp-architect.toml) - Internal developer platform architecture specialist
-- [**platform-product-manager**](categories/12-platform-engineering-idp/platform-product-manager.toml) - Platform roadmap, adoption, and success-metrics specialist
+- [**backstage-specialist**](categories/12-platform-engineering-idp/backstage-specialist.md) - Backstage catalog, templates, and portal specialist
+- [**golden-path-designer**](categories/12-platform-engineering-idp/golden-path-designer.md) - Opinionated self-service workflow designer
+- [**idp-architect**](categories/12-platform-engineering-idp/idp-architect.md) - Internal developer platform architecture specialist
+- [**platform-product-manager**](categories/12-platform-engineering-idp/platform-product-manager.md) - Platform roadmap, adoption, and success-metrics specialist
 
 </details>
 
@@ -356,16 +350,16 @@ DevOps, cloud, and deployment specialists.
 
 ### [13. LLMOps, Evals & Observability](categories/13-llmops-evals-observability/)
 
-- [**ai-observability-engineer**](categories/13-llmops-evals-observability/ai-observability-engineer.toml) - AI-native traces, metrics, and logging specialist
-- [**eval-engineer**](categories/13-llmops-evals-observability/eval-engineer.toml) - Prompt, tool, and workflow evaluation specialist
-- [**hallucination-investigator**](categories/13-llmops-evals-observability/hallucination-investigator.toml) - Factuality and context-breakdown root-cause investigator
-- [**prompt-regression-tester**](categories/13-llmops-evals-observability/prompt-regression-tester.toml) - Regression-suite designer for AI behavior changes
+- [**ai-observability-engineer**](categories/13-llmops-evals-observability/ai-observability-engineer.md) - AI-native traces, metrics, and logging specialist
+- [**eval-engineer**](categories/13-llmops-evals-observability/eval-engineer.md) - Prompt, tool, and workflow evaluation specialist
+- [**hallucination-investigator**](categories/13-llmops-evals-observability/hallucination-investigator.md) - Factuality and context-breakdown root-cause investigator
+- [**prompt-regression-tester**](categories/13-llmops-evals-observability/prompt-regression-tester.md) - Regression-suite designer for AI behavior changes
 
 </details>
 
 ## Understanding Subagents
 
-Subagents are specialized AI assistants that enhance Codex's capabilities by providing task-specific expertise. They act as dedicated helpers that Codex can call upon when encountering particular types of work.
+Subagents are specialized AI assistants that enhance Autohand Code by providing task-specific expertise. They act as dedicated helpers that Autohand Code can call upon when encountering particular types of work.
 
 ### What Makes Subagents Special?
 
@@ -379,14 +373,14 @@ Subagents come equipped with carefully crafted instructions tailored to their ar
 After creating a subagent, you can utilize it throughout various projects and distribute it among team members to ensure consistent development practices.
 
 **Explicit Delegation**
-Codex does not spawn subagents automatically. Use explicit delegation prompts to specify which agents to spawn, how to divide the work, and what shape the result should take.
+Autohand Code can use installed subagents through its agent and team tools. Use explicit delegation prompts to specify which agents to spawn, how to divide the work, and what shape the result should take.
 
 ### Core Advantages
 
 - **Memory Efficiency**: Isolated contexts prevent the main conversation from becoming cluttered with task-specific details
 - **Enhanced Accuracy**: Specialized prompts and configurations lead to better results in specific domains
 - **Workflow Consistency**: Team-wide subagent sharing ensures uniform approaches to common tasks
-- **Codex-Native**: Uses `.toml` agent files aligned with official Codex subagent docs
+- **Autohand-Native**: Uses markdown agent files loaded directly by Autohand Code
 
 ### Example Workflows
 
