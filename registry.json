@@ -1,0 +1,2292 @@
+{
+  "schemaVersion": 1,
+  "repository": "https://github.com/autohandai/awesome-sub-agents",
+  "agents": [
+    {
+      "name": "api-designer",
+      "description": "Use when a task needs API contract design, evolution planning, or compatibility review before implementation starts.",
+      "category": "01-core-development",
+      "path": "categories/01-core-development/api-designer.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "backend-developer",
+      "description": "Use when a task needs scoped backend implementation or backend bug fixes after the owning path is known.",
+      "category": "01-core-development",
+      "path": "categories/01-core-development/backend-developer.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "code-mapper",
+      "description": "Use when the parent agent needs a high-confidence map of code paths, ownership boundaries, and execution flow before changes are made.",
+      "category": "01-core-development",
+      "path": "categories/01-core-development/code-mapper.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.3-codex-spark"
+    },
+    {
+      "name": "design-bridge",
+      "description": "Use when a task needs a DESIGN.md (e.g. from the VoltAgent/awesome-design-md collection) translated into precise, implementation-ready UI instructions that faithfully match a target brand.",
+      "category": "01-core-development",
+      "path": "categories/01-core-development/design-bridge.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "electron-pro",
+      "description": "Use when a task needs Electron-specific implementation or debugging across main/renderer/preload boundaries, packaging, and desktop runtime behavior.",
+      "category": "01-core-development",
+      "path": "categories/01-core-development/electron-pro.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "frontend-developer",
+      "description": "Use when a task needs scoped frontend implementation or UI bug fixes with production-level behavior and quality.",
+      "category": "01-core-development",
+      "path": "categories/01-core-development/frontend-developer.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "fullstack-developer",
+      "description": "Use when one bounded feature or bug spans frontend and backend and a single worker should own the entire path.",
+      "category": "01-core-development",
+      "path": "categories/01-core-development/fullstack-developer.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "graphql-architect",
+      "description": "Use when a task needs GraphQL schema evolution, resolver architecture, federation design, or distributed graph performance/security review.",
+      "category": "01-core-development",
+      "path": "categories/01-core-development/graphql-architect.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "microservices-architect",
+      "description": "Use when a task needs service-boundary design, inter-service contract review, or distributed-system architecture decisions.",
+      "category": "01-core-development",
+      "path": "categories/01-core-development/microservices-architect.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "mobile-developer",
+      "description": "Use when a task needs mobile implementation or debugging across app lifecycle, API integration, and device/platform-specific UX constraints.",
+      "category": "01-core-development",
+      "path": "categories/01-core-development/mobile-developer.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "ui-designer",
+      "description": "Use when a task needs concrete UI decisions, interaction design, and implementation-ready design guidance before or during development.",
+      "category": "01-core-development",
+      "path": "categories/01-core-development/ui-designer.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "ui-fixer",
+      "description": "Use when a UI issue is already reproduced and the parent agent wants the smallest safe patch.",
+      "category": "01-core-development",
+      "path": "categories/01-core-development/ui-fixer.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.3-codex-spark"
+    },
+    {
+      "name": "websocket-engineer",
+      "description": "Use when a task needs real-time transport and state work across WebSocket lifecycle, message contracts, and reconnect/failure behavior.",
+      "category": "01-core-development",
+      "path": "categories/01-core-development/websocket-engineer.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "angular-architect",
+      "description": "Use when a task needs Angular-specific help for component architecture, dependency injection, routing, signals, or enterprise application structure.",
+      "category": "02-language-specialists",
+      "path": "categories/02-language-specialists/angular-architect.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "cpp-pro",
+      "description": "Use when a task needs C++ work involving performance-sensitive code, memory ownership, concurrency, or systems-level integration.",
+      "category": "02-language-specialists",
+      "path": "categories/02-language-specialists/cpp-pro.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "csharp-developer",
+      "description": "Use when a task needs C# or .NET application work involving services, APIs, async flows, or application architecture.",
+      "category": "02-language-specialists",
+      "path": "categories/02-language-specialists/csharp-developer.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "django-developer",
+      "description": "Use when a task needs Django-specific work across models, views, forms, ORM behavior, or admin and middleware flows.",
+      "category": "02-language-specialists",
+      "path": "categories/02-language-specialists/django-developer.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "dotnet-core-expert",
+      "description": "Use when a task needs modern .NET and ASP.NET Core expertise for APIs, hosting, middleware, or cross-platform application behavior.",
+      "category": "02-language-specialists",
+      "path": "categories/02-language-specialists/dotnet-core-expert.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "dotnet-framework-4.8-expert",
+      "description": "Use when a task needs .NET Framework 4.8 expertise for legacy enterprise applications, compatibility constraints, or Windows-bound integrations.",
+      "category": "02-language-specialists",
+      "path": "categories/02-language-specialists/dotnet-framework-4.8-expert.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "elixir-expert",
+      "description": "Use when a task needs Elixir and OTP expertise for processes, supervision, fault tolerance, or Phoenix application behavior.",
+      "category": "02-language-specialists",
+      "path": "categories/02-language-specialists/elixir-expert.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "erlang-expert",
+      "description": "Use when a task needs Erlang/OTP and rebar3 expertise for BEAM processes, testing, releases, upgrades, or distributed runtime behavior.",
+      "category": "02-language-specialists",
+      "path": "categories/02-language-specialists/erlang-expert.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "expo-react-native-expert",
+      "description": "Use when a task needs Expo / React Native mobile work — navigation, native modules, performance, EAS builds, or store deployment.",
+      "category": "02-language-specialists",
+      "path": "categories/02-language-specialists/expo-react-native-expert.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "fastapi-developer",
+      "description": "Use when a task needs FastAPI implementation — async endpoints, Pydantic v2 contracts, dependency injection, or ASGI deployment behavior.",
+      "category": "02-language-specialists",
+      "path": "categories/02-language-specialists/fastapi-developer.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "flutter-expert",
+      "description": "Use when a task needs Flutter expertise for widget behavior, state management, rendering issues, or mobile cross-platform implementation.",
+      "category": "02-language-specialists",
+      "path": "categories/02-language-specialists/flutter-expert.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "golang-pro",
+      "description": "Use when a task needs Go expertise for concurrency, service implementation, interfaces, tooling, or performance-sensitive backend paths.",
+      "category": "02-language-specialists",
+      "path": "categories/02-language-specialists/golang-pro.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "java-architect",
+      "description": "Use when a task needs Java application or service architecture help across framework boundaries, JVM behavior, or large codebase structure.",
+      "category": "02-language-specialists",
+      "path": "categories/02-language-specialists/java-architect.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "javascript-pro",
+      "description": "Use when a task needs JavaScript-focused work for runtime behavior, browser or Node execution, or application-level code that is not TypeScript-led.",
+      "category": "02-language-specialists",
+      "path": "categories/02-language-specialists/javascript-pro.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "kotlin-specialist",
+      "description": "Use when a task needs Kotlin expertise for JVM applications, Android code, coroutines, or modern strongly typed service logic.",
+      "category": "02-language-specialists",
+      "path": "categories/02-language-specialists/kotlin-specialist.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "laravel-specialist",
+      "description": "Use when a task needs Laravel-specific work across routing, Eloquent, queues, validation, or application structure.",
+      "category": "02-language-specialists",
+      "path": "categories/02-language-specialists/laravel-specialist.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "nextjs-developer",
+      "description": "Use when a task needs Next.js-specific work across routing, rendering modes, server actions, data fetching, or deployment-sensitive frontend behavior.",
+      "category": "02-language-specialists",
+      "path": "categories/02-language-specialists/nextjs-developer.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "node-specialist",
+      "description": "Use when a task needs Node.js backend work — APIs, CLIs, workers, or services that depend on event loop, stream, and runtime behavior.",
+      "category": "02-language-specialists",
+      "path": "categories/02-language-specialists/node-specialist.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "php-pro",
+      "description": "Use when a task needs PHP expertise for application logic, framework integration, runtime debugging, or server-side code evolution.",
+      "category": "02-language-specialists",
+      "path": "categories/02-language-specialists/php-pro.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "powershell-5.1-expert",
+      "description": "Use when a task needs Windows PowerShell 5.1 expertise for legacy automation, full .NET Framework interop, or Windows administration scripts.",
+      "category": "02-language-specialists",
+      "path": "categories/02-language-specialists/powershell-5.1-expert.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "powershell-7-expert",
+      "description": "Use when a task needs modern PowerShell 7 expertise for cross-platform automation, scripting, or .NET-based operational tooling.",
+      "category": "02-language-specialists",
+      "path": "categories/02-language-specialists/powershell-7-expert.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "python-pro",
+      "description": "Use when a task needs a Python-focused subagent for runtime behavior, packaging, typing, testing, or framework-adjacent implementation.",
+      "category": "02-language-specialists",
+      "path": "categories/02-language-specialists/python-pro.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "rails-expert",
+      "description": "Use when a task needs Ruby on Rails expertise for models, controllers, jobs, callbacks, or convention-driven application changes.",
+      "category": "02-language-specialists",
+      "path": "categories/02-language-specialists/rails-expert.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "react-specialist",
+      "description": "Use when a task needs a React-focused agent for component behavior, state flow, rendering bugs, or modern React patterns.",
+      "category": "02-language-specialists",
+      "path": "categories/02-language-specialists/react-specialist.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "rust-engineer",
+      "description": "Use when a task needs Rust expertise for ownership-heavy systems code, async runtime behavior, or performance-sensitive implementation.",
+      "category": "02-language-specialists",
+      "path": "categories/02-language-specialists/rust-engineer.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "spring-boot-engineer",
+      "description": "Use when a task needs Spring Boot expertise for service behavior, configuration, data access, or enterprise API implementation.",
+      "category": "02-language-specialists",
+      "path": "categories/02-language-specialists/spring-boot-engineer.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "sql-pro",
+      "description": "Use when a task needs SQL query design, query review, schema-aware debugging, or database migration analysis.",
+      "category": "02-language-specialists",
+      "path": "categories/02-language-specialists/sql-pro.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "swift-expert",
+      "description": "Use when a task needs Swift expertise for iOS or macOS code, async flows, Apple platform APIs, or strongly typed application logic.",
+      "category": "02-language-specialists",
+      "path": "categories/02-language-specialists/swift-expert.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "symfony-specialist",
+      "description": "Use when a task needs Symfony-specific work across routing, controllers, services, Doctrine, security, and application structure.",
+      "category": "02-language-specialists",
+      "path": "categories/02-language-specialists/symfony-specialist.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "typescript-pro",
+      "description": "Use when a task needs strong TypeScript help for types, interfaces, refactors, or compiler-driven fixes.",
+      "category": "02-language-specialists",
+      "path": "categories/02-language-specialists/typescript-pro.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "vue-expert",
+      "description": "Use when a task needs Vue expertise for component behavior, Composition API patterns, routing, or state and rendering issues.",
+      "category": "02-language-specialists",
+      "path": "categories/02-language-specialists/vue-expert.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "azure-infra-engineer",
+      "description": "Use when a task needs Azure-specific infrastructure review or implementation across resources, networking, identity, or automation.",
+      "category": "03-infrastructure",
+      "path": "categories/03-infrastructure/azure-infra-engineer.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "cloud-architect",
+      "description": "Use when a task needs cloud architecture review across compute, storage, networking, reliability, or multi-service design.",
+      "category": "03-infrastructure",
+      "path": "categories/03-infrastructure/cloud-architect.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "database-administrator",
+      "description": "Use when a task needs operational database administration review for availability, backups, recovery, permissions, or runtime health.",
+      "category": "03-infrastructure",
+      "path": "categories/03-infrastructure/database-administrator.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "deployment-engineer",
+      "description": "Use when a task needs deployment workflow changes, release strategy updates, or rollout and rollback safety analysis.",
+      "category": "03-infrastructure",
+      "path": "categories/03-infrastructure/deployment-engineer.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "devops-engineer",
+      "description": "Use when a task needs CI, deployment pipeline, release automation, or environment configuration work.",
+      "category": "03-infrastructure",
+      "path": "categories/03-infrastructure/devops-engineer.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "devops-incident-responder",
+      "description": "Use when a task needs rapid operational triage across CI, deployments, infrastructure automation, and service delivery failures.",
+      "category": "03-infrastructure",
+      "path": "categories/03-infrastructure/devops-incident-responder.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "docker-expert",
+      "description": "Use when a task needs Dockerfile review, image optimization, multi-stage build fixes, or container runtime debugging.",
+      "category": "03-infrastructure",
+      "path": "categories/03-infrastructure/docker-expert.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.3-codex-spark"
+    },
+    {
+      "name": "incident-responder",
+      "description": "Use when a task needs broad production incident triage, containment planning, or evidence-driven root cause analysis.",
+      "category": "03-infrastructure",
+      "path": "categories/03-infrastructure/incident-responder.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "kubernetes-specialist",
+      "description": "Use when a task needs Kubernetes manifest review, rollout safety analysis, or cluster workload debugging.",
+      "category": "03-infrastructure",
+      "path": "categories/03-infrastructure/kubernetes-specialist.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "network-engineer",
+      "description": "Use when a task needs network-path analysis, service connectivity debugging, load-balancer review, or infrastructure network design input.",
+      "category": "03-infrastructure",
+      "path": "categories/03-infrastructure/network-engineer.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "platform-engineer",
+      "description": "Use when a task needs internal platform, golden-path, or self-service infrastructure design for developers.",
+      "category": "03-infrastructure",
+      "path": "categories/03-infrastructure/platform-engineer.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "security-engineer",
+      "description": "Use when a task needs infrastructure and platform security engineering across IAM, secrets, network controls, or hardening work.",
+      "category": "03-infrastructure",
+      "path": "categories/03-infrastructure/security-engineer.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "sre-engineer",
+      "description": "Use when a task needs reliability engineering work involving SLOs, alerting, error budgets, operational safety, or service resilience.",
+      "category": "03-infrastructure",
+      "path": "categories/03-infrastructure/sre-engineer.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "terraform-engineer",
+      "description": "Use when a task needs Terraform module design, plan review, state-aware change analysis, or IaC refactoring.",
+      "category": "03-infrastructure",
+      "path": "categories/03-infrastructure/terraform-engineer.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "terragrunt-expert",
+      "description": "Use when a task needs Terragrunt-specific help for module orchestration, environment layering, dependency wiring, or DRY infrastructure structure.",
+      "category": "03-infrastructure",
+      "path": "categories/03-infrastructure/terragrunt-expert.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.3-codex-spark"
+    },
+    {
+      "name": "windows-infra-admin",
+      "description": "Use when a task needs Windows infrastructure administration across Active Directory, DNS, DHCP, GPO, or Windows automation.",
+      "category": "03-infrastructure",
+      "path": "categories/03-infrastructure/windows-infra-admin.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "accessibility-tester",
+      "description": "Use when a task needs an accessibility audit of UI changes, interaction flows, or component behavior.",
+      "category": "04-quality-security",
+      "path": "categories/04-quality-security/accessibility-tester.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "ad-security-reviewer",
+      "description": "Use when a task needs Active Directory security review across identity boundaries, delegation, GPO exposure, or directory hardening.",
+      "category": "04-quality-security",
+      "path": "categories/04-quality-security/ad-security-reviewer.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "ai-writing-auditor",
+      "description": "Use when a task needs prose to be checked for AI writing patterns and rewritten to sound natural and human.",
+      "category": "04-quality-security",
+      "path": "categories/04-quality-security/ai-writing-auditor.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.3-codex-spark"
+    },
+    {
+      "name": "architect-reviewer",
+      "description": "Use when a task needs architectural review for coupling, system boundaries, long-term maintainability, or design coherence.",
+      "category": "04-quality-security",
+      "path": "categories/04-quality-security/architect-reviewer.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "browser-debugger",
+      "description": "Use when a task needs browser-based reproduction, UI evidence gathering, or client-side debugging through a browser MCP server.",
+      "category": "04-quality-security",
+      "path": "categories/04-quality-security/browser-debugger.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "chaos-engineer",
+      "description": "Use when a task needs resilience analysis for dependency failure, degraded modes, recovery behavior, or controlled fault-injection planning.",
+      "category": "04-quality-security",
+      "path": "categories/04-quality-security/chaos-engineer.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "code-reviewer",
+      "description": "Use when a task needs a broader code-health review covering maintainability, design clarity, and risky implementation choices in addition to correctness.",
+      "category": "04-quality-security",
+      "path": "categories/04-quality-security/code-reviewer.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "compliance-auditor",
+      "description": "Use when a task needs compliance-oriented review of controls, auditability, policy alignment, or evidence gaps in a regulated workflow.",
+      "category": "04-quality-security",
+      "path": "categories/04-quality-security/compliance-auditor.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "debugger",
+      "description": "Use when a task needs deep bug isolation across code paths, stack traces, runtime behavior, or failing tests.",
+      "category": "04-quality-security",
+      "path": "categories/04-quality-security/debugger.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "error-detective",
+      "description": "Use when a task needs log, exception, or stack-trace analysis to identify the most probable failure source quickly.",
+      "category": "04-quality-security",
+      "path": "categories/04-quality-security/error-detective.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.3-codex-spark"
+    },
+    {
+      "name": "gdpr-ccpa-compliance",
+      "description": "Use when a task needs GDPR or CCPA/CPRA compliance review of data practices, consent flows, or data-subject rights handling.",
+      "category": "04-quality-security",
+      "path": "categories/04-quality-security/gdpr-ccpa-compliance.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "penetration-tester",
+      "description": "Use when a task needs adversarial review of an application path for exploitability, abuse cases, or practical attack surface analysis.",
+      "category": "04-quality-security",
+      "path": "categories/04-quality-security/penetration-tester.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "performance-engineer",
+      "description": "Use when a task needs performance investigation for slow requests, hot paths, rendering regressions, or scalability bottlenecks.",
+      "category": "04-quality-security",
+      "path": "categories/04-quality-security/performance-engineer.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "powershell-security-hardening",
+      "description": "Use when a task needs PowerShell-focused hardening across script safety, admin automation, execution controls, or Windows security posture.",
+      "category": "04-quality-security",
+      "path": "categories/04-quality-security/powershell-security-hardening.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "qa-expert",
+      "description": "Use when a task needs test strategy, acceptance coverage planning, or risk-based QA guidance for a feature or release.",
+      "category": "04-quality-security",
+      "path": "categories/04-quality-security/qa-expert.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "reviewer",
+      "description": "Use when a task needs PR-style review focused on correctness, security, behavior regressions, and missing tests.",
+      "category": "04-quality-security",
+      "path": "categories/04-quality-security/reviewer.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "security-auditor",
+      "description": "Use when a task needs focused security review of code, auth flows, secrets handling, input validation, or infrastructure configuration.",
+      "category": "04-quality-security",
+      "path": "categories/04-quality-security/security-auditor.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "test-automator",
+      "description": "Use when a task needs implementation of automated tests, test harness improvements, or targeted regression coverage.",
+      "category": "04-quality-security",
+      "path": "categories/04-quality-security/test-automator.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.3-codex-spark"
+    },
+    {
+      "name": "ui-ux-tester",
+      "description": "Use when a task needs exhaustive UI and UX functional testing driven by documented user flows, with structured defect reporting.",
+      "category": "04-quality-security",
+      "path": "categories/04-quality-security/ui-ux-tester.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "ai-engineer",
+      "description": "Use when a task needs implementation or debugging of model-backed application features, agent flows, or evaluation hooks.",
+      "category": "05-data-ai",
+      "path": "categories/05-data-ai/ai-engineer.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "data-analyst",
+      "description": "Use when a task needs data interpretation, metric breakdown, trend explanation, or decision support from existing analytics outputs.",
+      "category": "05-data-ai",
+      "path": "categories/05-data-ai/data-analyst.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.3-codex-spark"
+    },
+    {
+      "name": "data-engineer",
+      "description": "Use when a task needs ETL, ingestion, transformation, warehouse, or data-pipeline implementation and debugging.",
+      "category": "05-data-ai",
+      "path": "categories/05-data-ai/data-engineer.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "data-scientist",
+      "description": "Use when a task needs statistical reasoning, experiment interpretation, feature analysis, or model-oriented data exploration.",
+      "category": "05-data-ai",
+      "path": "categories/05-data-ai/data-scientist.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "database-optimizer",
+      "description": "Use when a task needs database performance analysis for query plans, schema design, indexing, or data access patterns.",
+      "category": "05-data-ai",
+      "path": "categories/05-data-ai/database-optimizer.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "llm-architect",
+      "description": "Use when a task needs architecture review for prompts, tool use, retrieval, evaluation, or multi-step LLM workflows.",
+      "category": "05-data-ai",
+      "path": "categories/05-data-ai/llm-architect.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "machine-learning-engineer",
+      "description": "Use when a task needs ML system implementation work across training pipelines, feature flow, model serving, or inference integration.",
+      "category": "05-data-ai",
+      "path": "categories/05-data-ai/machine-learning-engineer.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "ml-engineer",
+      "description": "Use when a task needs practical machine learning implementation across feature engineering, inference wiring, and model-backed application logic.",
+      "category": "05-data-ai",
+      "path": "categories/05-data-ai/ml-engineer.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "mlops-engineer",
+      "description": "Use when a task needs model deployment, registry, pipeline, monitoring, or environment orchestration for machine learning systems.",
+      "category": "05-data-ai",
+      "path": "categories/05-data-ai/mlops-engineer.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "nlp-engineer",
+      "description": "Use when a task needs NLP-specific implementation or analysis involving text processing, embeddings, ranking, or language-model-adjacent pipelines.",
+      "category": "05-data-ai",
+      "path": "categories/05-data-ai/nlp-engineer.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "postgres-pro",
+      "description": "Use when a task needs PostgreSQL-specific expertise for schema design, performance behavior, locking, or operational database features.",
+      "category": "05-data-ai",
+      "path": "categories/05-data-ai/postgres-pro.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "prompt-engineer",
+      "description": "Use when a task needs prompt revision, instruction design, eval-oriented prompt comparison, or prompt-output contract tightening.",
+      "category": "05-data-ai",
+      "path": "categories/05-data-ai/prompt-engineer.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "reinforcement-learning-engineer",
+      "description": "Use when a task needs RL environment design, policy training, reward engineering, or deployment of decision-making agents.",
+      "category": "05-data-ai",
+      "path": "categories/05-data-ai/reinforcement-learning-engineer.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "build-engineer",
+      "description": "Use when a task needs build-graph debugging, bundling fixes, compiler pipeline work, or CI build stabilization.",
+      "category": "06-developer-experience",
+      "path": "categories/06-developer-experience/build-engineer.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.3-codex-spark"
+    },
+    {
+      "name": "cli-developer",
+      "description": "Use when a task needs a command-line interface feature, UX review, argument parsing change, or shell-facing workflow improvement.",
+      "category": "06-developer-experience",
+      "path": "categories/06-developer-experience/cli-developer.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "dependency-manager",
+      "description": "Use when a task needs dependency upgrades, package graph analysis, version-policy cleanup, or third-party library risk assessment.",
+      "category": "06-developer-experience",
+      "path": "categories/06-developer-experience/dependency-manager.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.3-codex-spark"
+    },
+    {
+      "name": "documentation-engineer",
+      "description": "Use when a task needs technical documentation that must stay faithful to current code, tooling, and operator workflows.",
+      "category": "06-developer-experience",
+      "path": "categories/06-developer-experience/documentation-engineer.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.3-codex-spark"
+    },
+    {
+      "name": "dx-optimizer",
+      "description": "Use when a task needs developer-experience improvements in setup time, local workflows, feedback loops, or day-to-day tooling friction.",
+      "category": "06-developer-experience",
+      "path": "categories/06-developer-experience/dx-optimizer.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "git-workflow-manager",
+      "description": "Use when a task needs help with branching strategy, merge flow, release branching, or repository collaboration conventions.",
+      "category": "06-developer-experience",
+      "path": "categories/06-developer-experience/git-workflow-manager.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.3-codex-spark"
+    },
+    {
+      "name": "legacy-modernizer",
+      "description": "Use when a task needs a modernization path for older code, frameworks, or architecture without losing behavioral safety.",
+      "category": "06-developer-experience",
+      "path": "categories/06-developer-experience/legacy-modernizer.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "mcp-developer",
+      "description": "Use when a task needs work on MCP servers, MCP clients, tool wiring, or protocol-aware integrations.",
+      "category": "06-developer-experience",
+      "path": "categories/06-developer-experience/mcp-developer.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "powershell-module-architect",
+      "description": "Use when a task needs PowerShell module structure, command design, packaging, or profile architecture work.",
+      "category": "06-developer-experience",
+      "path": "categories/06-developer-experience/powershell-module-architect.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "powershell-ui-architect",
+      "description": "Use when a task needs PowerShell-based UI work for terminals, forms, WPF, or admin-oriented interactive tooling.",
+      "category": "06-developer-experience",
+      "path": "categories/06-developer-experience/powershell-ui-architect.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "readme-generator",
+      "description": "Use when a task needs a maintainer-ready README built from exact repository reality, with zero hallucinated commands, flags, or config keys.",
+      "category": "06-developer-experience",
+      "path": "categories/06-developer-experience/readme-generator.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.3-codex-spark"
+    },
+    {
+      "name": "refactoring-specialist",
+      "description": "Use when a task needs a low-risk structural refactor that preserves behavior while improving readability, modularity, or maintainability.",
+      "category": "06-developer-experience",
+      "path": "categories/06-developer-experience/refactoring-specialist.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "slack-expert",
+      "description": "Use when a task needs Slack platform work involving bots, interactivity, events, workflows, or Slack-specific integration behavior.",
+      "category": "06-developer-experience",
+      "path": "categories/06-developer-experience/slack-expert.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "tooling-engineer",
+      "description": "Use when a task needs internal developer tooling, scripts, automation glue, or workflow support utilities.",
+      "category": "06-developer-experience",
+      "path": "categories/06-developer-experience/tooling-engineer.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.3-codex-spark"
+    },
+    {
+      "name": "visual-asset-generator",
+      "description": "Use when a project needs production-ready visual assets: app icons, favicons, OG images, logos, or wordmarks. Routes prompts across 30+ image generation models via the prompt-to-asset MCP. Zero API key required for first run via free tiers.",
+      "category": "06-developer-experience",
+      "path": "categories/06-developer-experience/visual-asset-generator.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.3-codex-spark"
+    },
+    {
+      "name": "api-documenter",
+      "description": "Use when a task needs consumer-facing API documentation generated from the real implementation, schema, and examples.",
+      "category": "07-specialized-domains",
+      "path": "categories/07-specialized-domains/api-documenter.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.3-codex-spark"
+    },
+    {
+      "name": "blockchain-developer",
+      "description": "Use when a task needs blockchain or Web3 implementation and review across smart-contract integration, wallet flows, or transaction lifecycle handling.",
+      "category": "07-specialized-domains",
+      "path": "categories/07-specialized-domains/blockchain-developer.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "embedded-systems",
+      "description": "Use when a task needs embedded or hardware-adjacent work involving device constraints, firmware boundaries, timing, or low-level integration.",
+      "category": "07-specialized-domains",
+      "path": "categories/07-specialized-domains/embedded-systems.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "fintech-engineer",
+      "description": "Use when a task needs financial systems engineering across ledgers, reconciliation, transfers, settlement, or compliance-sensitive transactional flows.",
+      "category": "07-specialized-domains",
+      "path": "categories/07-specialized-domains/fintech-engineer.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "game-developer",
+      "description": "Use when a task needs game-specific implementation or debugging involving gameplay systems, rendering loops, asset flow, or player-state behavior.",
+      "category": "07-specialized-domains",
+      "path": "categories/07-specialized-domains/game-developer.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "healthcare-admin",
+      "description": "Use when a task involves healthcare administration: revenue cycle management, HIPAA/compliance auditing, medical coding (ICD-10, CPT, DRGs), CMS cost reports, payer contract analysis, quality improvement, clinical operations, health IT/interoperability, population health, or pharmacy benefits.",
+      "category": "07-specialized-domains",
+      "path": "categories/07-specialized-domains/healthcare-admin.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "hipaa-compliance",
+      "description": "Use when a task needs HIPAA compliance review for a healthcare product — Business Associate scope, BAA needs, PHI handling, safeguards, or breach response.",
+      "category": "07-specialized-domains",
+      "path": "categories/07-specialized-domains/hipaa-compliance.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "iot-engineer",
+      "description": "Use when a task needs IoT system work involving devices, telemetry, edge communication, or cloud-device coordination.",
+      "category": "07-specialized-domains",
+      "path": "categories/07-specialized-domains/iot-engineer.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "m365-admin",
+      "description": "Use when a task needs Microsoft 365 administration help across Exchange Online, Teams, SharePoint, identity, or tenant-level automation.",
+      "category": "07-specialized-domains",
+      "path": "categories/07-specialized-domains/m365-admin.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "mobile-app-developer",
+      "description": "Use when a task needs app-level mobile product work across screens, state, API integration, and release-sensitive mobile behavior.",
+      "category": "07-specialized-domains",
+      "path": "categories/07-specialized-domains/mobile-app-developer.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "payment-integration",
+      "description": "Use when a task needs payment-flow review or implementation for checkout, idempotency, webhooks, retries, or settlement state handling.",
+      "category": "07-specialized-domains",
+      "path": "categories/07-specialized-domains/payment-integration.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "quant-analyst",
+      "description": "Use when a task needs quantitative analysis of models, strategies, simulations, or numeric decision logic.",
+      "category": "07-specialized-domains",
+      "path": "categories/07-specialized-domains/quant-analyst.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "risk-manager",
+      "description": "Use when a task needs explicit risk analysis for product, operational, financial, or architectural decisions.",
+      "category": "07-specialized-domains",
+      "path": "categories/07-specialized-domains/risk-manager.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "seo-specialist",
+      "description": "Use when a task needs search-focused technical review across crawlability, metadata, rendering, information architecture, or content discoverability.",
+      "category": "07-specialized-domains",
+      "path": "categories/07-specialized-domains/seo-specialist.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.3-codex-spark"
+    },
+    {
+      "name": "assumption-mapping",
+      "description": "Use when a task needs to surface and prioritize risky assumptions in a product idea, feature, or strategy before engineering invests in building it.",
+      "category": "08-business-product",
+      "path": "categories/08-business-product/assumption-mapping.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "backlog-grooming",
+      "description": "Use when a task needs a product backlog groomed, refined, or cleaned up — sprint readiness, estimation, and zombie-story cleanup.",
+      "category": "08-business-product",
+      "path": "categories/08-business-product/backlog-grooming.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.3-codex-spark"
+    },
+    {
+      "name": "business-analyst",
+      "description": "Use when a task needs requirements clarified, scope normalized, or acceptance criteria extracted from messy inputs before engineering work starts.",
+      "category": "08-business-product",
+      "path": "categories/08-business-product/business-analyst.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "content-marketer",
+      "description": "Use when a task needs product-adjacent content strategy or messaging that still has to stay grounded in real technical capabilities.",
+      "category": "08-business-product",
+      "path": "categories/08-business-product/content-marketer.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.3-codex-spark"
+    },
+    {
+      "name": "content-quality-editor",
+      "description": "Use before publishing AI-generated content — blog posts, READMEs, release notes, commit messages, PR descriptions, docs, or social posts. Strips AI patterns and applies a final quality pass.",
+      "category": "08-business-product",
+      "path": "categories/08-business-product/content-quality-editor.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.3-codex-spark"
+    },
+    {
+      "name": "customer-success-manager",
+      "description": "Use when a task needs support-pattern synthesis, adoption risk analysis, or customer-facing operational guidance from engineering context.",
+      "category": "08-business-product",
+      "path": "categories/08-business-product/customer-success-manager.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.3-codex-spark"
+    },
+    {
+      "name": "growth-loops",
+      "description": "Use when a task needs growth loop design, PLG mechanics analysis, or diagnosis of why acquisition is linear instead of compounding.",
+      "category": "08-business-product",
+      "path": "categories/08-business-product/growth-loops.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "legal-advisor",
+      "description": "Use when a task needs legal-risk spotting in product or engineering behavior, especially around terms, data handling, or externally visible commitments.",
+      "category": "08-business-product",
+      "path": "categories/08-business-product/legal-advisor.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "license-engineer",
+      "description": "Use when a task needs software licensing architecture — OSI selection, dependency compliance, dual-licensing, or risk and liability strategy.",
+      "category": "08-business-product",
+      "path": "categories/08-business-product/license-engineer.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "product-manager",
+      "description": "Use when a task needs product framing, prioritization, or feature-shaping based on engineering reality and user impact.",
+      "category": "08-business-product",
+      "path": "categories/08-business-product/product-manager.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "project-manager",
+      "description": "Use when a task needs dependency mapping, milestone planning, sequencing, or delivery-risk coordination across multiple workstreams.",
+      "category": "08-business-product",
+      "path": "categories/08-business-product/project-manager.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "sales-engineer",
+      "description": "Use when a task needs technically accurate solution positioning, customer-question handling, or implementation tradeoff explanation for pre-sales contexts.",
+      "category": "08-business-product",
+      "path": "categories/08-business-product/sales-engineer.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.3-codex-spark"
+    },
+    {
+      "name": "scrum-master",
+      "description": "Use when a task needs process facilitation, iteration planning, or workflow friction analysis for an engineering team.",
+      "category": "08-business-product",
+      "path": "categories/08-business-product/scrum-master.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.3-codex-spark"
+    },
+    {
+      "name": "technical-writer",
+      "description": "Use when a task needs release notes, migration notes, onboarding material, or developer-facing prose derived from real code changes.",
+      "category": "08-business-product",
+      "path": "categories/08-business-product/technical-writer.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.3-codex-spark"
+    },
+    {
+      "name": "ux-researcher",
+      "description": "Use when a task needs UI feedback synthesized into actionable product and implementation guidance.",
+      "category": "08-business-product",
+      "path": "categories/08-business-product/ux-researcher.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "wordpress-master",
+      "description": "Use when a task needs WordPress-specific implementation or debugging across themes, plugins, content architecture, or operational site behavior.",
+      "category": "08-business-product",
+      "path": "categories/08-business-product/wordpress-master.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find",
+        "apply_patch",
+        "search_replace",
+        "run_command"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "agent-installer",
+      "description": "Use when a task needs help selecting, copying, or organizing custom agent files from this repository into Autohand Code agent directories.",
+      "category": "09-meta-orchestration",
+      "path": "categories/09-meta-orchestration/agent-installer.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.3-codex-spark"
+    },
+    {
+      "name": "agent-organizer",
+      "description": "Use when the parent agent needs help choosing subagents and dividing a larger task into clean delegated threads.",
+      "category": "09-meta-orchestration",
+      "path": "categories/09-meta-orchestration/agent-organizer.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "codebase-orchestrator",
+      "description": "Use when a task needs repository-wide refactor governance with weighted risk prioritization, diff previews, and explicit approval gates before execution.",
+      "category": "09-meta-orchestration",
+      "path": "categories/09-meta-orchestration/codebase-orchestrator.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "context-manager",
+      "description": "Use when a task needs a compact project context summary that other subagents can rely on before deeper work begins.",
+      "category": "09-meta-orchestration",
+      "path": "categories/09-meta-orchestration/context-manager.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.3-codex-spark"
+    },
+    {
+      "name": "error-coordinator",
+      "description": "Use when multiple errors or symptoms need to be grouped, prioritized, and assigned to the right debugging or review agents.",
+      "category": "09-meta-orchestration",
+      "path": "categories/09-meta-orchestration/error-coordinator.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "it-ops-orchestrator",
+      "description": "Use when a task needs coordinated operational planning across infrastructure, incident response, identity, endpoint, and admin workflows.",
+      "category": "09-meta-orchestration",
+      "path": "categories/09-meta-orchestration/it-ops-orchestrator.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "knowledge-synthesizer",
+      "description": "Use when multiple agents have returned findings and the parent agent needs a distilled, non-redundant synthesis.",
+      "category": "09-meta-orchestration",
+      "path": "categories/09-meta-orchestration/knowledge-synthesizer.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.3-codex-spark"
+    },
+    {
+      "name": "multi-agent-coordinator",
+      "description": "Use when a task needs a concrete multi-agent plan with clear role separation, dependencies, and result integration.",
+      "category": "09-meta-orchestration",
+      "path": "categories/09-meta-orchestration/multi-agent-coordinator.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "performance-monitor",
+      "description": "Use when a task needs ongoing performance-signal interpretation across build, runtime, or operational metrics before deeper optimization starts.",
+      "category": "09-meta-orchestration",
+      "path": "categories/09-meta-orchestration/performance-monitor.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.3-codex-spark"
+    },
+    {
+      "name": "task-distributor",
+      "description": "Use when a broad task needs to be broken into concrete sub-tasks with clear boundaries for multiple agents or contributors.",
+      "category": "09-meta-orchestration",
+      "path": "categories/09-meta-orchestration/task-distributor.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "workflow-orchestrator",
+      "description": "Use when the parent agent needs an explicit Autohand Code subagent workflow for a complex task with multiple stages.",
+      "category": "09-meta-orchestration",
+      "path": "categories/09-meta-orchestration/workflow-orchestrator.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "ab-test-analysis",
+      "description": "Use when a task needs analysis of A/B test results, interpretation of p-values and confidence intervals, statistical significance checks, or a principled ship/no-ship decision.",
+      "category": "10-research-analysis",
+      "path": "categories/10-research-analysis/ab-test-analysis.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "cohort-analysis",
+      "description": "Use when a task needs retention analysis, cohort behavior comparison, activation-metric discovery, or diagnosis of how user groups perform over time.",
+      "category": "10-research-analysis",
+      "path": "categories/10-research-analysis/cohort-analysis.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "competitive-analyst",
+      "description": "Use when a task needs a grounded comparison of tools, products, libraries, or implementation options.",
+      "category": "10-research-analysis",
+      "path": "categories/10-research-analysis/competitive-analyst.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.3-codex-spark"
+    },
+    {
+      "name": "data-researcher",
+      "description": "Use when a task needs source gathering and synthesis around datasets, metrics, data pipelines, or evidence-backed quantitative questions.",
+      "category": "10-research-analysis",
+      "path": "categories/10-research-analysis/data-researcher.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.3-codex-spark"
+    },
+    {
+      "name": "docs-researcher",
+      "description": "Use when a task needs documentation-backed verification of APIs, version-specific behavior, or framework options.",
+      "category": "10-research-analysis",
+      "path": "categories/10-research-analysis/docs-researcher.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.3-codex-spark"
+    },
+    {
+      "name": "first-principles-thinking",
+      "description": "Use when a task needs assumptions challenged, a complex problem broken down to fundamentals, or a solution rebuilt from scratch rather than from convention or analogy.",
+      "category": "10-research-analysis",
+      "path": "categories/10-research-analysis/first-principles-thinking.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "market-researcher",
+      "description": "Use when a task needs market landscape, positioning, or demand-side research tied to a technical product or category.",
+      "category": "10-research-analysis",
+      "path": "categories/10-research-analysis/market-researcher.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.3-codex-spark"
+    },
+    {
+      "name": "project-idea-validator",
+      "description": "Use when a task needs an idea pressure-tested with brutal honesty — competitor teardown, market validation, fatal-flaw hunting, and clear go or no-go guidance before building.",
+      "category": "10-research-analysis",
+      "path": "categories/10-research-analysis/project-idea-validator.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "research-analyst",
+      "description": "Use when a task needs a structured investigation of a technical topic, implementation approach, or design question.",
+      "category": "10-research-analysis",
+      "path": "categories/10-research-analysis/research-analyst.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "scientific-literature-researcher",
+      "description": "Use when a task needs evidence-grounded answers from published research, including methods, results, sample sizes, and quality-weighted synthesis.",
+      "category": "10-research-analysis",
+      "path": "categories/10-research-analysis/scientific-literature-researcher.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.3-codex-spark"
+    },
+    {
+      "name": "search-specialist",
+      "description": "Use when a task needs fast, high-signal searching of the codebase or external sources before deeper analysis begins.",
+      "category": "10-research-analysis",
+      "path": "categories/10-research-analysis/search-specialist.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.3-codex-spark"
+    },
+    {
+      "name": "trend-analyst",
+      "description": "Use when a task needs trend synthesis across technology shifts, adoption patterns, or emerging implementation directions.",
+      "category": "10-research-analysis",
+      "path": "categories/10-research-analysis/trend-analyst.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.3-codex-spark"
+    },
+    {
+      "name": "ai-governance-auditor",
+      "description": "Use when a task needs an AI governance review covering controls, accountability, risk ownership, and deployment readiness.",
+      "category": "11-ai-governance-safety",
+      "path": "categories/11-ai-governance-safety/ai-governance-auditor.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "model-risk-manager",
+      "description": "Use when a task needs model risk analysis, failure mode prioritization, and mitigation planning for AI behavior.",
+      "category": "11-ai-governance-safety",
+      "path": "categories/11-ai-governance-safety/model-risk-manager.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "policy-guardrail-designer",
+      "description": "Use when a task needs enforceable prompt, tool, workflow, or approval guardrails for AI systems.",
+      "category": "11-ai-governance-safety",
+      "path": "categories/11-ai-governance-safety/policy-guardrail-designer.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "responsible-ai-reviewer",
+      "description": "Use when a task needs review of fairness, transparency, misuse risk, and human-oversight design in AI features.",
+      "category": "11-ai-governance-safety",
+      "path": "categories/11-ai-governance-safety/responsible-ai-reviewer.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "backstage-specialist",
+      "description": "Use when a task needs Backstage architecture, catalog, plugin, template, or adoption guidance for an internal developer platform.",
+      "category": "12-platform-engineering-idp",
+      "path": "categories/12-platform-engineering-idp/backstage-specialist.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "golden-path-designer",
+      "description": "Use when a task needs an opinionated, low-friction golden path for service creation, deployment, or operations.",
+      "category": "12-platform-engineering-idp",
+      "path": "categories/12-platform-engineering-idp/golden-path-designer.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "idp-architect",
+      "description": "Use when a task needs internal developer platform architecture, service boundaries, and self-service control-plane design.",
+      "category": "12-platform-engineering-idp",
+      "path": "categories/12-platform-engineering-idp/idp-architect.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "platform-product-manager",
+      "description": "Use when a task needs platform roadmap, adoption strategy, success metrics, and stakeholder alignment for internal platform work.",
+      "category": "12-platform-engineering-idp",
+      "path": "categories/12-platform-engineering-idp/platform-product-manager.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.3-codex-spark"
+    },
+    {
+      "name": "ai-observability-engineer",
+      "description": "Use when a task needs AI-native traces, metrics, logging, and debugging signals for LLM or agent systems in production.",
+      "category": "13-llmops-evals-observability",
+      "path": "categories/13-llmops-evals-observability/ai-observability-engineer.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "eval-engineer",
+      "description": "Use when a task needs evaluation design for prompts, retrieval, tools, or multi-step agent workflows.",
+      "category": "13-llmops-evals-observability",
+      "path": "categories/13-llmops-evals-observability/eval-engineer.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "hallucination-investigator",
+      "description": "Use when a task needs root-cause analysis for factuality failures, unsupported claims, or context breakdowns in AI outputs.",
+      "category": "13-llmops-evals-observability",
+      "path": "categories/13-llmops-evals-observability/hallucination-investigator.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.4"
+    },
+    {
+      "name": "prompt-regression-tester",
+      "description": "Use when a task needs regression coverage for prompt, model, tool, or workflow changes in an AI system.",
+      "category": "13-llmops-evals-observability",
+      "path": "categories/13-llmops-evals-observability/prompt-regression-tester.md",
+      "tools": [
+        "read_file",
+        "fff_grep",
+        "fff_find"
+      ],
+      "model": "gpt-5.3-codex-spark"
+    }
+  ]
+}

@@ -8,11 +8,13 @@ This repository is a curated catalog of Autohand Code sub-agent definitions.
 - Add new agents under the most specific `categories/<category>/` directory.
 - Update both the root `README.md` and the category `README.md` when adding, removing, renaming, or materially changing an agent.
 - Preserve upstream attribution and MIT license notices.
-- Validate frontmatter, prompt bodies, and unique agent filenames before committing.
+- Keep `registry.json` generated from the catalog before committing.
+- Validate frontmatter, prompt bodies, registry freshness, and unique agent filenames before committing.
 
 ## Validation
 
 ```bash
 find categories -name '*.md' ! -name README.md | wc -l
+python3 scripts/generate_registry.py --check
 python3 scripts/validate_agents.py
 ```

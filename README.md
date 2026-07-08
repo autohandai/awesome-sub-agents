@@ -54,6 +54,16 @@ autohand --agents ./categories/04-quality-security
 
 Note: Session-injected agents and project-generated agents can override file-based agents with the same name in Autohand Code.
 
+## Registry
+
+Autohand Code reads [registry.json](registry.json) to search and install agents from this catalog without cloning the repository. The registry is generated from agent frontmatter and includes each agent's name, description, category, path, tools, and model.
+
+When changing agents, regenerate and validate the registry:
+
+```bash
+python3 scripts/generate_registry.py
+python3 scripts/validate_agents.py
+```
 
 ## Subagent Structure
 

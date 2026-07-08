@@ -6,9 +6,11 @@ from __future__ import annotations
 import sys
 from pathlib import Path
 
+from generate_registry import build_registry, format_registry
 
 ROOT = Path(__file__).resolve().parents[1]
 CATEGORIES = ROOT / "categories"
+REGISTRY_PATH = ROOT / "registry.json"
 
 
 def parse_frontmatter(text: str) -> tuple[dict[str, str], str] | None:
@@ -66,6 +68,12 @@ def main() -> int:
             )
         else:
             seen[name] = path
+
+    expected_registry = format_registry(build_registry())
+    if not REGISTRY_PATH.exists():
+        errors.append("registry.json is missing; run scripts/generate_registry.py")
+    elif REGISTRY_PATH.read_text(encoding="utf-8") != expected_registry:
+        errors.append("registry.json is stale; run scripts/generate_registry.py")
 
     if errors:
         for error in errors:
